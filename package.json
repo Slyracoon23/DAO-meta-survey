@@ -10,11 +10,16 @@
     "export": "npm run build && next export -o _static"
   },
   "dependencies": {
+    "@popmotion/popcorn": "^0.4.4",
     "eslint-config-next": "13.0.3",
     "framer-motion": "^7.6.7",
+    "lodash": "^4.17.21",
     "next": "13.0.3",
+    "popmotion": "^11.0.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-lorem-ipsum": "^1.4.10",
+    "react-router-dom": "^6.11.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

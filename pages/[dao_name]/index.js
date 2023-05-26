@@ -1,7 +1,12 @@
-import { Footer, Navbar } from '../components';
-import { About, Explore, Feedback, GetStarted, Hero, Insights, WhatsNew, World } from '../sections';
+import { Footer, Navbar } from '../../components';
+import { About, Explore, Feedback, GetStarted, Hero, Insights, WhatsNew, World } from '../../sections';
 
-const Home = () => (
+import { Header } from "../../components/proposalPage/Header";
+import { CardList } from "../../components/proposalPage/CardList";
+
+// import "/components/proposalPage/styles.css";
+
+const DaoProposal = () => (
   <div className="bg-primary-black overflow-hidden">
     {/* <Navbar />
     <Hero /> */}
@@ -9,7 +14,10 @@ const Home = () => (
       {/* <About /> */}
       <div className="gradient-03 z-0" />
       
-      <Explore />
+      {/* <div className="container"> */}
+      <Header />
+      <CardList />
+    {/* </div> */}
     </div>
     {/* <div className="relative">
       <GetStarted />
@@ -26,4 +34,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default DaoProposal;
