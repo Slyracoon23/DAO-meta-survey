@@ -14,10 +14,12 @@ const DaoProposal = () => (
       {/* <About /> */}
       <div className="gradient-03 z-0" />
       
-      {/* <div className="container"> */}
+      <div className="flex justify-center">
+      <div className="container">
       <Header />
       <CardList />
-    {/* </div> */}
+    </div>
+    </div>``
     </div>
     {/* <div className="relative">
       <GetStarted />

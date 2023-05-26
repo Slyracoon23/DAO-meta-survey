@@ -3,6 +3,8 @@ import { useDomEvent, MotionValue } from "framer-motion";
 import { spring } from "popmotion";
 import { mix } from "@popmotion/popcorn";
 import { debounce } from "lodash";
+import { animate } from "popmotion";
+
 
 interface Constraints {
   top: number;
@@ -19,19 +21,20 @@ const elasticFactor = 0.2;
 function springTo(value: MotionValue, from: number, to: number) {
   if (value.isAnimating()) return;
 
-  value.start(complete => {
-    const animation = spring({
+  value.start((complete) => {
+    const controls = animate({
       from,
       to,
       velocity: value.getVelocity(),
       stiffness: 400,
-      damping: 40
-    }).start({
-      update: (v: number) => value.set(v),
-      complete
+      damping: 40,
+      onUpdate: (v: number) => {
+        value.set(v);
+      },
+      onComplete: complete,
     });
 
-    return () => animation.stop();
+    return controls.stop;
   });
 }
 

@@ -1,3 +1,4 @@
+'use client';
 import * as React from "react";
 import { memo, useRef } from "react";
 import { motion, useMotionValue } from "framer-motion";
@@ -30,10 +31,14 @@ export const Card = memo(
   ({ isSelected, setSelectedCardId, id, title, category, pointOfInterest, backgroundColor }: Props) => {
     const y = useMotionValue(0);
     const zIndex = useMotionValue(isSelected ? 2 : 0);
-    const router = useRouter();
+    const scale = isSelected ? 1.2 : 1; // Adjust these values to suit your design
+
 
     // Maintain the visual border radius when we perform the layoutTransition by inverting its scaleX/Y
     const inverted = useInvertedBorderRadius(20);
+
+    console.log("inverted", inverted);
+
 
     // We'll use the opened card element to calculate the scroll constraints
     const cardRef = useRef(null);
@@ -63,7 +68,9 @@ export const Card = memo(
 
     return (
       <li ref={containerRef} className={`card`}>
-        <Overlay isSelected={isSelected} setSelectedCardId={setSelectedCardId} /> {/* add setSelectedCardId here */}
+        {/* <li className={`card`}> */}
+         {/* add setSelectedCardId here */}
+        <Overlay isSelected={isSelected} setSelectedCardId={setSelectedCardId} />
         <div className={`card-content-container ${isSelected && "open"}`}>
           <motion.div
             ref={cardRef}

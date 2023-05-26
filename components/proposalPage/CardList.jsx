@@ -1,3 +1,4 @@
+'use client';
 import * as React from "react";
 import { Card } from "./Card";
 import { useRouter } from "next/router";
