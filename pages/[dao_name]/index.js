@@ -2,7 +2,7 @@ import { Footer, Navbar } from '../../components';
 import { About, Explore, Feedback, GetStarted, Hero, Insights, WhatsNew, World } from '../../sections';
 
 import { Header } from "../../components/proposalPage/Header";
-import { CardList } from "../../components/proposalPage/CardList";
+import CardList from "../../components/proposalPage/CardList";
 
 // import "/components/proposalPage/styles.css";
 

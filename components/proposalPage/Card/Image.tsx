@@ -1,5 +1,5 @@
 import * as React from "react";
-import { motion, useInvertedScale } from "framer-motion";
+import { motion, useMotionValue, useDeprecatedInvertedScale } from "framer-motion";
 import { closeSpring } from "./animations";
 
 export const Image = ({
@@ -8,7 +8,9 @@ export const Image = ({
   pointOfInterest = 0,
   backgroundColor
 }) => {
-  const inverted = useInvertedScale();
+  const scaleX = useMotionValue(1);
+  const scaleY = useMotionValue(1);
+  const inverted = useDeprecatedInvertedScale({scaleX, scaleY});
 
   return (
     <motion.div
@@ -17,7 +19,7 @@ export const Image = ({
     >
       <motion.img
         className="card-image"
-        src={`images/${id}.jpg`}
+        src={`/images/${id}.jpg`}
         alt=""
         initial={false}
         animate={

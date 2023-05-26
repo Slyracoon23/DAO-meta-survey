@@ -1,9 +1,11 @@
 import * as React from "react";
 import { LoremIpsum } from "react-lorem-ipsum";
-import { motion, useInvertedScale } from "framer-motion";
+import { motion,useMotionValue, useDeprecatedInvertedScale } from "framer-motion";
 
 export const ContentPlaceholder = React.memo(() => {
-  const inverted = useInvertedScale();
+  const scaleX = useMotionValue(1);
+  const scaleY = useMotionValue(1);
+  const inverted = useDeprecatedInvertedScale({scaleX, scaleY});
   return (
     <motion.div
       className="content-container"

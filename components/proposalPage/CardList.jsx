@@ -1,24 +1,6 @@
 import * as React from "react";
 import { Card } from "./Card";
-git
-const List = ({ match, history }) => (
-  <ul className="card-list">
-    {cardData.map(card => (
-      <Card
-        key={card.id}
-        isSelected={match.params.id === card.id}
-        history={history}
-        {...card}
-      />
-    ))}
-  </ul>
-);
-
-export const CardList = () => (
-  <Router>
-    <Route path={["/:id", "/"]} component={List} />
-  </Router>
-);
+import { useRouter } from "next/router";
 
 const cardData = [
   // Photo by ivan Torres on Unsplash
@@ -86,3 +68,28 @@ const cardData = [
     backgroundColor: "#CC555B"
   }
 ];
+
+
+const List = ({ cardData, selectedCardId, setSelectedCardId }) => {
+  return (
+    <ul className="card-list">
+      {cardData.map(card => (
+        <Card
+          key={card.id}
+          isSelected={selectedCardId === card.id}
+          setSelectedCardId={setSelectedCardId}
+          {...card}
+        />
+      ))}
+    </ul>
+  );
+};
+
+const CardList = () => {
+  const [selectedCardId, setSelectedCardId] = React.useState(null);
+  return <List cardData={cardData} selectedCardId={selectedCardId} setSelectedCardId={setSelectedCardId} />;
+};
+
+export default CardList;
+
+
